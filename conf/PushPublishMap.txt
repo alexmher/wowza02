@@ -1,0 +1,19 @@
+# This file has been upgraded for use by the Wowza Streaming Engine REST API. Please avoid hand-editing.
+#
+# Push Publishing Map file, format:
+#
+# format:
+# [src-stream-name]={Profile:[profile], [additional-configuration-items]}
+#
+
+#myStream={profile:"rtmp", streamName:"myStreamRTMP", host:"localhost", application:"live", userName:"myuser", password:"mypassword"}
+#myStream={profile:"mpegts", streamName:"myStreamMPEGTS", host:"239.1.1.1", port:10000, rtpWrap:false}
+#myStream={profile:"rtp", streamName:"myStreamRTP", host:"239.1.1.1", videoPort:10002, audioPort:10004}
+4_enc_720p={"entryName":"4.nano_a", "profile":"rtmp", "wowzaVideo.region":"us", "application":"live", "destinationName":"rtmp", "host":"aCKBb-eWCOS.vtrans-eu-a.glb.nanocosmos.de", "group.streamMatcher":"namePrefix", "streamName":"aCKBb-eWCOS", "enabled":"true"}
+4_enc_720p={"entryName":"4.nano_b", "profile":"rtmp", "wowzaVideo.region":"us", "application":"live", "destinationName":"rtmp", "host":"aCKBb-pnb1C.vtrans-eu-b.glb.nanocosmos.de", "group.streamMatcher":"namePrefix", "streamName":"aCKBb-pnb1C"}
+4_source={"entryName":"flussonic_local", "profile":"rtmp", "wowzaVideo.region":"us", "application":"4", "port":"1936", "destinationName":"rtmp", "host":"178.63.101.204", "group.streamMatcher":"namePrefix", "streamName":"4", "enabled":"false"}
+4_source={"entryName":"vs-test", "profile":"rtmp", "wowzaVideo.region":"us", "application":"vs", "port":"1936", "destinationName":"rtmp", "host":"178.63.101.204", "group.streamMatcher":"namePrefix", "streamName":"test", "enabled":"false"}
+4_480p={"entryName":"nano-a-480", "profile":"rtmp", "wowzaVideo.region":"us", "application":"live", "destinationName":"rtmp", "host":"aCKBb-PsICv.vtrans-eu-a.glb.nanocosmos.de", "group.streamMatcher":"namePrefix", "streamName":"aCKBb-PsICv", "enabled":"false"}
+4_480p={"entryName":"nano-b-480", "profile":"rtmp", "wowzaVideo.region":"us", "application":"live", "destinationName":"rtmp", "host":"aCKBb-mcKmx.vtrans-eu-b.glb.nanocosmos.de", "group.streamMatcher":"namePrefix", "streamName":"aCKBb-mcKmx", "enabled":"false"}
+4={"entryName":"mpegts", "profile":"mpegts", "wowzaVideo.region":"us", "port":"80", "destinationName":"mpegts", "host":"play.vs.stream.digitain.tools", "group.streamMatcher":"namePrefix", "streamName":"4", "enabled":"false"}
+4={"entryName":"fs", "profile":"srt", "wowzaVideo.region":"us", "srtKeyLength":"16", "port":"20000", "destinationName":"srt", "host":"play.vs.stream.digitain.tools", "srtStreamId":"#!::r=4,m=publish", "group.streamMatcher":"namePrefix", "enabled":"false"}

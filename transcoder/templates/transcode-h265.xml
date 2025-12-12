@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example template for transcoding, producing three new streams encoded to HEVC/H.265 video and AAC audio at different bitrates. Resultant streams can be played back individually or as a group. The 720p block is enabled through the Enable property, other examples are not enabled. Add additional encode blocks to your template as needed. -->
+<Root version="1">
+	<Transcode>
+		<Description>Default H.265 Transcode.xml file</Description>
+		<PostProcess>
+			<SortBuffer>
+				<Enable>true</Enable>
+				<!-- milliseconds -->
+				<BufferSize>750</BufferSize>
+				<FlushInterval>75</FlushInterval>
+			</SortBuffer>
+		</PostProcess>
+		<Encodes>
+			<!-- Setup for 4k, high bandwith, main profile for desktop or set-top box -->
+			<Encode>
+				<Enable>false</Enable>
+				<Name>4k</Name>
+				<StreamName>mp4:${SourceStreamName}_4k</StreamName>
+				<Video>
+					<!-- H.263, H.264, H.265, VP8, VP9, PassThru, Disable -->
+					<Codec>H.265</Codec>
+					<!-- default, QuickSync, NVENC -->
+					<Implementation>default</Implementation>
+					<GPUID>-1</GPUID>
+					<FrameSize>
+						<!-- letterbox, fit-width, fit-height, crop, stretch, match-source -->
+						<FitMode>letterbox</FitMode>
+						<Width>3840</Width>
+						<Height>2160</Height>
+						<!-- <Crop>0,0,0,0</Crop> -->
+						<!-- <SourceRectangle>0,0,4096,2160</SourceRectangle> -->
+					</FrameSize>
+					<!-- baseline, main, high -->
+					<Profile>main</Profile>
+					<Bitrate>11600000</Bitrate>
+					<KeyFrameInterval>
+						<FollowSource>false</FollowSource>
+						<Interval>60</Interval>
+					</KeyFrameInterval>
+					<Overlays>
+						<Overlay>
+							<Enable>false</Enable>
+							<Name>WowzaLogo</Name>
+							<Index>0</Index>
+							<ImagePath>${com.wowza.wms.context.VHostConfigHome}/content/wowzalogo.png</ImagePath>
+							<CheckForUpdates>false</CheckForUpdates>
+							<Opacity>100</Opacity>
+							<Location>
+								<X>4</X>
+								<Y>4</Y>
+								<Width>${ImageWidth}</Width>
+								<Height>${ImageHeight}</Height>
+								<!-- horiz: left, right, hcenter - vert: top, bottom, vcenter -->
+								<Align>left,top</Align>
+							</Location>
+						</Overlay>
+					</Overlays>
+					<Parameters>
+					</Parameters>
+				</Video>
+				<Audio>
+					<!-- AAC, Vorbis, Opus, PassThru, Disable -->
+					<Codec>AAC</Codec>
+					<Bitrate>96000</Bitrate>
+					<Resample>
+						<Enable>false</Enable>
+						<SampleRate>48000</SampleRate>
+						<Channels>2</Channels>
+						<ChannelMaskSource>0</ChannelMaskSource>
+						<ChannelMaskDestination>0</ChannelMaskDestination>
+					</Resample>
+					<Parameters>
+					</Parameters>
+				</Audio>
+				<Properties>
+				</Properties>
+			</Encode>
+			<!-- Setup for 1080p, high bandwith, main profile for desktop -->
+			<Encode>
+				<Enable>false</Enable>
+				<Name>1080p</Name>
+				<StreamName>mp4:${SourceStreamName}_1080p</StreamName>
+				<Video>
+					<!-- H.263, H.264, H.265, VP8, VP9, PassThru, Disable -->
+					<Codec>H.265</Codec>
+					<!-- default, QuickSync, NVENC -->
+					<Implementation>default</Implementation>
+					<GPUID>-1</GPUID>
+					<FrameSize>
+						<!-- letterbox, fit-width, fit-height, crop, stretch, match-source -->
+						<FitMode>letterbox</FitMode>
+						<Width>1920</Width>
+						<Height>1080</Height>
+						<!-- <Crop>0,0,0,0</Crop> -->
+						<!-- <SourceRectangle>0,0,1920,1080</SourceRectangle> -->
+					</FrameSize>
+					<!-- baseline, main, high -->
+					<Profile>main</Profile>
+					<Bitrate>4500000</Bitrate>
+					<KeyFrameInterval>
+						<FollowSource>false</FollowSource>
+						<Interval>60</Interval>
+					</KeyFrameInterval>
+					<Overlays>
+						<Overlay>
+							<Enable>false</Enable>
+							<Name>WowzaLogo</Name>
+							<Index>0</Index>
+							<ImagePath>${com.wowza.wms.context.VHostConfigHome}/content/wowzalogo.png</ImagePath>
+							<CheckForUpdates>false</CheckForUpdates>
+							<Opacity>100</Opacity>
+							<Location>
+								<X>4</X>
+								<Y>4</Y>
+								<Width>${ImageWidth}</Width>
+								<Height>${ImageHeight}</Height>
+								<!-- horiz: left, right, hcenter - vert: top, bottom, vcenter -->
+								<Align>left,top</Align>
+							</Location>
+						</Overlay>
+					</Overlays>
+					<Parameters>
+					</Parameters>
+				</Video>
+				<Audio>
+					<!-- AAC, Vorbis, Opus, PassThru, Disable -->
+					<Codec>AAC</Codec>
+					<Bitrate>96000</Bitrate>
+					<Resample>
+						<Enable>false</Enable>
+						<SampleRate>48000</SampleRate>
+						<Channels>2</Channels>
+						<ChannelMaskSource>0</ChannelMaskSource>
+						<ChannelMaskDestination>0</ChannelMaskDestination>
+					</Resample>
+					<Parameters>
+					</Parameters>
+				</Audio>
+				<Properties>
+				</Properties>
+			</Encode>
+			<!-- Setup for 720p, medium bandwidth, main profile -->
+			<Encode>
+				<Enable>true</Enable>
+				<Name>720p</Name>
+				<StreamName>mp4:${SourceStreamName}_720p</StreamName>
+				<Video>
+					<!-- H.263, H.264, H.265, VP8, VP9, PassThru, Disable -->
+					<Codec>H.265</Codec>
+					<!-- default, QuickSync, NVENC -->
+					<Implementation>default</Implementation>
+					<GPUID>-1</GPUID>
+					<FrameSize>
+						<!-- letterbox, fit-width, fit-height, crop, stretch, match-source  -->
+						<FitMode>letterbox</FitMode>
+						<Width>1280</Width>
+						<Height>720</Height>
+						<Crop></Crop>
+						<SourceRectangle></SourceRectangle>
+					</FrameSize>
+					<!-- baseline, main, high -->
+					<Profile>main</Profile>
+					<Bitrate>2400000</Bitrate>
+					<KeyFrameInterval>
+						<FollowSource>false</FollowSource>
+						<Interval>60</Interval>
+					</KeyFrameInterval>
+					<Overlays>
+						<Overlay>
+							<Enable>false</Enable>
+							<Name>WowzaLogo</Name>
+							<Index>0</Index>
+							<ImagePath>${com.wowza.wms.context.VHostConfigHome}/content/wowzalogo.png</ImagePath>
+							<CheckForUpdates>false</CheckForUpdates>
+							<Opacity>100</Opacity>
+							<Location>
+								<X>4</X>
+								<Y>4</Y>
+								<Width>${ImageWidth}</Width>
+								<Height>${ImageHeight}</Height>
+								<!-- horiz: left, right, hcenter - vert: top, bottom, vcenter -->
+								<Align>left,top</Align>
+							</Location>
+						</Overlay>
+					</Overlays>
+					<Parameters>
+					</Parameters>
+				</Video>
+				<Audio>
+					<!-- AAC, Vorbis, Opus, PassThru, Disable -->
+					<Codec>AAC</Codec>
+					<Bitrate>96000</Bitrate>
+					<Resample>
+						<Enable>false</Enable>
+						<SampleRate>48000</SampleRate>
+						<Channels>2</Channels>
+						<ChannelMaskSource>0</ChannelMaskSource>
+						<ChannelMaskDestination>0</ChannelMaskDestination>
+					</Resample>
+					<Parameters>
+					</Parameters>
+				</Audio>
+				<Properties>
+				</Properties>
+			</Encode>
+		</Encodes>
+		<Decode>
+			<Video>
+				<!-- default, QuickSync, CUDA, NVCUVID -->
+				<Implementation>default</Implementation>
+				<Deinterlace>false</Deinterlace>
+				<Overlays>
+					<Overlay>
+						<Enable>false</Enable>
+						<Name>WowzaLogo</Name>
+						<Index>0</Index>
+						<ImagePath>${com.wowza.wms.context.VHostConfigHome}/content/wowzalogo.png</ImagePath>
+						<CheckForUpdates>false</CheckForUpdates>
+						<Opacity>100</Opacity>
+						<Location>
+							<X>4</X>
+							<Y>4</Y>
+							<Width>${ImageWidth}</Width>
+							<Height>${ImageHeight}</Height>
+							<!-- horiz: left, right, hcenter - vert: top, bottom, vcenter -->
+							<Align>left,top</Align>
+						</Location>
+					</Overlay>
+				</Overlays>
+				<Parameters>
+				</Parameters>
+			</Video>
+			<Audio>
+				<Resample>
+					<Enable>false</Enable>
+					<SampleRate>48000</SampleRate>
+					<Channels>2</Channels>
+					<ChannelMaskSource>0</ChannelMaskSource>
+					<ChannelMaskDestination>0</ChannelMaskDestination>
+				</Resample>
+				<Parameters>
+				</Parameters>
+			</Audio>
+			<Properties>
+			</Properties>
+		</Decode>
+		<Scale>
+			<!-- default, CUDA -->
+			<Implementation>default</Implementation>
+			<Parameters>
+			</Parameters>
+			<Properties>
+			</Properties>
+		</Scale>
+		<StreamNameGroups>
+			<!-- Note: Play stream using stream name ngrp:[stream-name]. -->
+			<StreamNameGroup>
+				<Name>all</Name>
+				<StreamName>${SourceStreamName}_all</StreamName>
+				<Members>
+					<Member>
+						<MemberName>4k</MemberName>
+						<EncodeName>4k</EncodeName>
+					</Member>
+					<Member>
+						<MemberName>1080p</MemberName>
+						<EncodeName>1080p</EncodeName>
+					</Member>
+					<Member>
+						<MemberName>720p</MemberName>
+						<EncodeName>720p</EncodeName>
+					</Member>
+				</Members>
+			</StreamNameGroup>
+		</StreamNameGroups>
+		<Properties>
+		</Properties>
+	</Transcode>
+</Root>
