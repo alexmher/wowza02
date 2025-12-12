@@ -24,6 +24,7 @@ rsync -a --delete \
 rsync -a --delete \
   --exclude='logs' \
   --exclude='*.log' \
+  --exclude='.gitkeep' \
   "$WOWZA/applications/"  "$REPO/applications/"
 
 # transcoder
