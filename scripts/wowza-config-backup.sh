@@ -38,7 +38,9 @@ mkdir -p "$REPO/lib"
 if [[ -f "$WOWZA/lib/timecode.jar" ]]; then
     cp "$WOWZA/lib/timecode.jar" "$REPO/lib/timecode.jar"
 fi
-
+if [[ -f "$WOWZA/lib/wms-server.jar" ]]; then
+    cp "$WOWZA/lib/wms-server.jar" "$REPO/lib/wms-server.jar"
+fi
 # ---- GIT COMMIT IF CHANGED ----
 if [[ -n "$(git status --porcelain)" ]]; then
     NOW="$(date '+%F %T')"
