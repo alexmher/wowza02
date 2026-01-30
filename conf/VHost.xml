@@ -11,7 +11,7 @@
 				<!-- Separate multiple ports with commas -->
 				<!-- 80: HTTP, RTMPT -->
 				<!-- 554: RTSP -->
-				<Port>1935</Port>
+				<Port>1935,80</Port>
 				<HTTPIdent2Response></HTTPIdent2Response>
 				<SocketConfiguration>
 					<ReuseAddress>true</ReuseAddress>
@@ -33,6 +33,11 @@
 				</SocketConfiguration>
 				<HTTPStreamerAdapterIDs>cupertinostreaming,smoothstreaming,sanjosestreaming,dvrchunkstreaming,mpegdashstreaming</HTTPStreamerAdapterIDs>
 				<HTTPProviders>
+                                        <HTTPProvider>
+                                                <BaseClass>com.wowza.wms.plugin.HTTPProviderMarathonDataInjection</BaseClass>
+                                                <RequestFilters>*marathonData</RequestFilters>
+                                                <AuthenticationMethod>none</AuthenticationMethod>
+                                        </HTTPProvider>
 					<HTTPProvider>
 						<BaseClass>com.wowza.wms.http.HTTPCrossdomain</BaseClass>
 						<RequestFilters>*crossdomain.xml</RequestFilters>
