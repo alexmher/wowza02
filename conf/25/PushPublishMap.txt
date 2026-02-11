@@ -8,3 +8,4 @@
 25.stream={"entryName":"133_804", "profile":"rtmp", "wowzaVideoTranscoder.width":"0", "application":"133_804", "destinationName":"wowzastreamingengine", "host":"localhost", "wowzaVideoTranscoder.height":"0", "streamName":"133_804.stream", "enabled":"true"}
 25.stream={"entryName":"133_806", "profile":"rtmp", "wowzaVideoTranscoder.width":"0", "application":"133_806", "destinationName":"wowzastreamingengine", "host":"localhost", "wowzaVideoTranscoder.height":"0", "streamName":"133_806.stream", "enabled":"true"}
 25.stream={"entryName":"133_807", "profile":"rtmp", "wowzaVideoTranscoder.width":"0", "application":"133_807", "destinationName":"wowzastreamingengine", "host":"localhost", "wowzaVideoTranscoder.height":"0", "streamName":"133_807.stream", "enabled":"true"}
+25.stream={"entryName":"oven", "profile":"rtmp", "wowzaVideoTranscoder.width":"0", "application":"app", "host":"il-ingest01.digitain.stream", "wowzaVideoTranscoder.height":"0", "streamName":"25"}
