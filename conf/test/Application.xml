@@ -33,11 +33,21 @@
 			<LiveStreamPacketizers></LiveStreamPacketizers>
 			<!-- Properties defined here will override any properties defined in conf/Streams.xml for any streams types loaded by this application -->
 			<Properties>
+				<Property>
+					<Name>sortPackets</Name>
+					<Value>false</Value>
+					<Type>Boolean</Type>
+				</Property>
+				<Property>
+					<Name>sortBufferSize</Name>
+					<Value>0</Value>
+					<Type>Integer</Type>
+				</Property>
 			</Properties>
 		</Streams>
 		<Transcoder>
 			<!-- To turn on transcoder set to: transcoder -->
-			<LiveStreamTranscoder>transcoder</LiveStreamTranscoder>
+			<LiveStreamTranscoder></LiveStreamTranscoder>
 			<!-- [templatename].xml or ${SourceStreamName}.xml -->
 			<Templates>${SourceStreamName}.xml,transrate.xml</Templates>
 			<ProfileDir>${com.wowza.wms.context.VHostConfigHome}/transcoder/profiles</ProfileDir>
@@ -83,7 +93,7 @@
 		<Client>
 			<IdleFrequency>-1</IdleFrequency>
 			<Access>
-				<StreamReadAccess></StreamReadAccess>
+				<StreamReadAccess>*</StreamReadAccess>
 				<StreamWriteAccess>*</StreamWriteAccess>
 				<StreamAudioSampleAccess></StreamAudioSampleAccess>
 				<StreamVideoSampleAccess></StreamVideoSampleAccess>
@@ -150,18 +160,18 @@
 				<VideoTimeout>0</VideoTimeout>
 				<AudioStartTimeout>0</AudioStartTimeout>
 				<AudioTimeout>0</AudioTimeout>
-				<VideoTCToleranceEnable>false</VideoTCToleranceEnable>
-				<VideoTCPosTolerance>3000</VideoTCPosTolerance>
-				<VideoTCNegTolerance>-500</VideoTCNegTolerance>
-				<AudioTCToleranceEnable>false</AudioTCToleranceEnable>
-				<AudioTCPosTolerance>3000</AudioTCPosTolerance>
-				<AudioTCNegTolerance>-500</AudioTCNegTolerance>
+				<VideoTCToleranceEnable>true</VideoTCToleranceEnable>
+				<VideoTCPosTolerance>1000</VideoTCPosTolerance>
+				<VideoTCNegTolerance>-200</VideoTCNegTolerance>
+				<AudioTCToleranceEnable>true</AudioTCToleranceEnable>
+				<AudioTCPosTolerance>1000</AudioTCPosTolerance>
+				<AudioTCNegTolerance>-200</AudioTCNegTolerance>
 				<DataTCToleranceEnable>false</DataTCToleranceEnable>
 				<DataTCPosTolerance>3000</DataTCPosTolerance>
 				<DataTCNegTolerance>-500</DataTCNegTolerance>
-				<AVSyncToleranceEnable>false</AVSyncToleranceEnable>
-				<AVSyncTolerance>1500</AVSyncTolerance>
-				<DebugLog>false</DebugLog>
+				<AVSyncToleranceEnable>true</AVSyncToleranceEnable>
+				<AVSyncTolerance>500</AVSyncTolerance>
+				<DebugLog>true</DebugLog>
 			</StreamValidator>
 			<!-- Properties defined here will override any properties defined in conf/MediaCasters.xml for any MediaCasters loaded by this applications -->
 			<Properties>
@@ -217,9 +227,9 @@
 				<Class>com.wowza.wms.module.ModuleFLVPlayback</Class>
 			</Module>
 			<Module>
-				<Name>ModuleCoreSecurity</Name>
-				<Description>Core Security Module for Applications</Description>
-				<Class>com.wowza.wms.security.ModuleCoreSecurity</Class>
+				<Name>ModulePushPublish</Name>
+				<Description>ModulePushPublish</Description>
+				<Class>com.wowza.wms.pushpublish.module.ModulePushPublish</Class>
 			</Module>
 		</Modules>
 		<!-- Properties defined here will be added to the IApplication.getProperties() and IApplicationInstance.getProperties() collections -->
