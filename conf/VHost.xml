@@ -17,7 +17,7 @@
 					<ReuseAddress>true</ReuseAddress>
 					<!-- suggested settings for video on demand applications -->
 					<ReceiveBufferSize>0</ReceiveBufferSize>
-					<ReadBufferSize>32000</ReadBufferSize>
+					<ReadBufferSize>65000</ReadBufferSize>
 					<SendBufferSize>0</SendBufferSize>
 					<!-- suggest settings for low latency chat and video recording applications
 					<ReceiveBufferSize>32000</ReceiveBufferSize>
@@ -33,11 +33,11 @@
 				</SocketConfiguration>
 				<HTTPStreamerAdapterIDs>cupertinostreaming,smoothstreaming,sanjosestreaming,dvrchunkstreaming,mpegdashstreaming</HTTPStreamerAdapterIDs>
 				<HTTPProviders>
-                                        <HTTPProvider>
-                                                <BaseClass>com.wowza.wms.plugin.HTTPProviderMarathonDataInjection</BaseClass>
-                                                <RequestFilters>*marathonData</RequestFilters>
-                                                <AuthenticationMethod>none</AuthenticationMethod>
-                                        </HTTPProvider>
+					<HTTPProvider>
+						<BaseClass>com.wowza.wms.plugin.HTTPProviderMarathonDataInjection</BaseClass>
+						<RequestFilters>*marathonData</RequestFilters>
+						<AuthenticationMethod>none</AuthenticationMethod>
+					</HTTPProvider>
 					<HTTPProvider>
 						<BaseClass>com.wowza.wms.http.HTTPCrossdomain</BaseClass>
 						<RequestFilters>*crossdomain.xml</RequestFilters>
@@ -82,10 +82,10 @@
 				<HTTPStreamerAdapterIDs></HTTPStreamerAdapterIDs>
 				<HTTPProviders>
 					<HTTPProvider>
-                                                <BaseClass>com.wowza.wms.transcoder.thumbnailer.HTTPProviderGenerateThumbnail</BaseClass>
-                                                <RequestFilters>thumbnail*</RequestFilters>
-                                                <AuthenticationMethod>none</AuthenticationMethod>
-                                        </HTTPProvider>
+						<BaseClass>com.wowza.wms.transcoder.thumbnailer.HTTPProviderGenerateThumbnail</BaseClass>
+						<RequestFilters>thumbnail*</RequestFilters>
+						<AuthenticationMethod>none</AuthenticationMethod>
+					</HTTPProvider>
 					<HTTPProvider>
 						<BaseClass>com.wowza.wms.http.HTTPServerInfoXML</BaseClass>
 						<RequestFilters>serverinfo*</RequestFilters>
