@@ -245,7 +245,7 @@
 		</IdleWorkers>
 		<NetConnections>
 			<ProcessorCount>${com.wowza.wms.TuningAuto}</ProcessorCount>
-			<IdleFrequency>250</IdleFrequency>
+			<IdleFrequency>120</IdleFrequency>
 			<SocketConfiguration>
 				<ReuseAddress>true</ReuseAddress>
 				<ReceiveBufferSize>0</ReceiveBufferSize>
@@ -257,6 +257,7 @@
 				<!-- <SoLingerTime>-1</SoLingerTime> -->
 				<!-- <TcpNoDelay>false</TcpNoDelay> -->
 				<AcceptorBackLog>100</AcceptorBackLog>
+				<TcpNoDelay>true</TcpNoDelay>
 			</SocketConfiguration>
 		</NetConnections>
 		<MediaCasters>

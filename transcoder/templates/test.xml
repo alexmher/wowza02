@@ -18,22 +18,22 @@
 				<StreamName>mp4:${SourceStreamName}_source</StreamName>
 				<Video>
 					<!-- H.263, H.264, H.265, VP8, VP9, PassThru, Disable -->
-					<Codec>PassThru</Codec>
-					<Bitrate>${SourceVideoBitrate}</Bitrate>
+					<Codec>H.264</Codec>
+					<Bitrate>4000000</Bitrate>
 					<Parameters>
 					</Parameters>
-					<Implementation></Implementation>
+					<Implementation>default</Implementation>
 					<GPUID>-1</GPUID>
-					<Profile></Profile>
+					<Profile>baseline</Profile>
 					<KeyFrameInterval>
-						<FollowSource>false</FollowSource>
+						<FollowSource>true</FollowSource>
 						<Interval>0</Interval>
 					</KeyFrameInterval>
 					<FrameSize>
-						<FitMode></FitMode>
+						<FitMode>fit-height</FitMode>
 						<Width>0</Width>
-						<Height>0</Height>
-						<Crop></Crop>
+						<Height>1080</Height>
+						<Crop>0,0,0,0</Crop>
 						<SourceRectangle></SourceRectangle>
 					</FrameSize>
 				</Video>
@@ -238,13 +238,13 @@
 					<Implementation>NVENC</Implementation>
 					<GPUID>-1</GPUID>
 					<Profile>baseline</Profile>
-					<Bitrate>1000000</Bitrate>
+					<Bitrate>1600000</Bitrate>
 					<KeyFrameInterval>
 						<FollowSource>true</FollowSource>
 						<Interval>0</Interval>
 					</KeyFrameInterval>
 					<FrameSize>
-						<FitMode>match-source</FitMode>
+						<FitMode>fit-height</FitMode>
 						<Width>480</Width>
 						<Height>480</Height>
 						<Crop>0,0,0,0</Crop>
@@ -270,8 +270,8 @@
 					</Overlays>
 				</Video>
 				<Audio>
-					<Codec>Disable</Codec>
-					<Bitrate>0</Bitrate>
+					<Codec>PassThru</Codec>
+					<Bitrate>${SourceAudioBitrate}</Bitrate>
 				</Audio>
 			</Encode>
 			<Encode>
@@ -284,7 +284,7 @@
 					<Implementation>NVENC</Implementation>
 					<GPUID>-1</GPUID>
 					<Profile>main</Profile>
-					<Bitrate>1600000</Bitrate>
+					<Bitrate>2764800</Bitrate>
 					<KeyFrameInterval>
 						<FollowSource>true</FollowSource>
 						<Interval>0</Interval>
@@ -316,8 +316,8 @@
 					</Overlays>
 				</Video>
 				<Audio>
-					<Codec>Disable</Codec>
-					<Bitrate>0</Bitrate>
+					<Codec>PassThru</Codec>
+					<Bitrate>${SourceAudioBitrate}</Bitrate>
 				</Audio>
 			</Encode>
 		</Encodes>
