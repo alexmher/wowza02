@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>https://teams.cloud.microsoft/
 <!-- Example template for transrate, producing four new streams at different bitrates. Resultant streams can be played back individually or as a group. source, 360p and 160p encode blocks are enabled through the Enable property, other examples are not enabled. Add additional encode blocks to your template as needed. --><Root version="1">
 	<Transcode>
 		<Description></Description>
