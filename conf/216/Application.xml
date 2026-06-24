@@ -39,7 +39,7 @@
 			<!-- To turn on transcoder set to: transcoder -->
 			<LiveStreamTranscoder>transcoder</LiveStreamTranscoder>
 			<!-- [templatename].xml or ${SourceStreamName}.xml -->
-			<Templates>${SourceStreamName}.xml,transrate.xml</Templates>
+			<Templates>transrate.xml</Templates>
 			<ProfileDir>${com.wowza.wms.context.VHostConfigHome}/transcoder/profiles</ProfileDir>
 			<TemplateDir>${com.wowza.wms.context.VHostConfigHome}/transcoder/templates</TemplateDir>
 			<Properties>
